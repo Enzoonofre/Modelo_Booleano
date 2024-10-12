@@ -1,27 +1,27 @@
-Ideia do trabalho:
-Utilizar apenas a biblioteca Spacy para fazer a criação de um índice invertido e um modelo booleano, que tenha consultas e gere arquivos de texto com a respota das consultas e com o índice invertido
+# Projeto de Índice Invertido e Modelo Booleano com SpaCy
 
-O arquivo do trabalho foi separado em 3 partes no código, referenciadas com o comentário e traços "----",sendo essas partes: índice invertido, modelo booleano e main, cada uma da parte armazena as funções e linhas de códigos necessárias para compor o script.
+## Ideia do Trabalho
+O objetivo deste projeto é implementar um índice invertido e um modelo booleano utilizando apenas a biblioteca **SpaCy**. O sistema processa consultas e gera arquivos de texto contendo as respostas, assim como um índice invertido, que facilita a busca em documentos.
 
-Para o script rodar ele precisar estar na mesma pasta que as pastas "base1" e "base_samba", se ele estiver dentro das pastas não rodorá como o esperado, mas é possível ajustar o código para conseguir rodar dentro das pastas.
+## Estrutura do Código
+O código do projeto está organizado em três partes principais, cada uma referenciada com um comentário e traços "----":
+1. **Índice Invertido**: Responsável por criar e armazenar o índice invertido, onde cada termo é mapeado para os documentos em que aparece e a quantidade de vezes que aparece.
+2. **Modelo Booleano**: Lida com as consultas feitas pelo usuário e utiliza o índice invertido para determinar quais documentos satisfazem as condições da consulta.
+3. **Main**: Onde as funções são chamadas, controlando o fluxo do programa e gerenciando a interação com o usuário.
 
-Lógica do programa:
-Recebe a base.txt, entra nas pastas e procura essa base, quando acha, le todos os documentos que estão referenciados na base, após isso, armazena os tokens referentes a esses documentos e cria objetos da classe "termo", que tem o atributo "palavra" e "ocorrência", palavra seria propriamente o termo e ocorrência é um dicionário falando em qual documento ele aparece e quantas vezes, por exemplo --> amor:0:4,4:2,etc
+## Lógica do Programa
+O programa opera da seguinte maneira:
+1. **Recepção da Base de Dados**: O script começa recebendo um arquivo `base.txt`, que contém referências a documentos em duas pastas (`base1` e `base_samba`).
+2. **Leitura de Documentos**: Ao encontrar o arquivo de base, o programa lê todos os documentos listados e armazena os tokens (palavras) referentes a esses documentos.
+3. **Criação de Objetos da Classe `termo`**: Cada termo é armazenado em objetos da classe `termo`, que possui os atributos:
+   - `palavra`: o termo em si.
+   - `ocorrência`: um dicionário que indica em quais documentos o termo aparece e quantas vezes (ex: `"amor:0:4,4:2"`).
 
-Após isso a parte do modelo booleano se concentra em ler a consulta e analisar os operadores lógicos que há na consulta e a partir dai buscar no índice quais documentos que satisfazem essa consulta.
+4. **Execução de Consultas**: A parte do modelo booleano lê a consulta do usuário, analisa os operadores lógicos e busca no índice para identificar quais documentos correspondem à consulta.
 
-Para conseguir rodar os corretores automáticos disponibilizados, é necessário utilizar os corretores dentro da pasta que quer fazer a verificação, abrir o CMD dentro dessa pasta e chamar da seguinte forma:
+## Instruções para Execução
+### Pré-requisitos
+Certifique-se de ter o **SpaCy** instalado. Você pode instalar usando o seguinte comando:
 
-python3 waxm_corretor_modelo_booleano.pyc base.txt consulta.txt ../modelo_booleano.py
-
-lembrando que o script não deve estar dentro da pasta da base que se for fazer a verificação
-
-
-Para rodar:
-
-Para rodar o programa é necessário abrir o CMD na pasta em que estiver o arquivo "modelo_booleano.py" e utilizar o seguinte código:
-python modelo booleano.py base.txt consulta.txt
-
-no qual a base poderá escolher entre "base samba" e "base" e a consulta vai variar da base que escolher.
-
-Com o entendimento desses passos, será possível rodar o script e analisa-lo
+```bash
+pip install spacy
