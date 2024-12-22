@@ -20,6 +20,7 @@ O programa opera da seguinte maneira:
 4. **Execução de Consultas**: A parte do modelo booleano lê a consulta do usuário, analisa os operadores lógicos e busca no índice para identificar quais documentos correspondem à consulta.
 
 ## Instruções para Execução
+
 ### Pré-requisitos
 Certifique-se de ter o **SpaCy** instalado. Você pode instalar usando o seguinte comando:
 
